@@ -1,0 +1,32 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #18122b;
+  --secondary: #393053;
+  --tertiary: #443c68;
+  --lighter-Version: #635985;
+  --text: #2c2c2c;
+  --white: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+header a {
+  font-size: 2rem;
+  font-weight: 700;
+  background: #63598527;
+  border-radius: 3px;
+}
+
+.table.table-striped tr {
+  vertical-align: middle;
+}
