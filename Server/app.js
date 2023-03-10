@@ -34,11 +34,11 @@ const employeeScheema = new mongoose.Schema({
     email: String,
     contact: Number,
     age: Number,
-    // dateOfBirth: {
-    //     type: Date,
-    //     default: "10-07-1999",
-    // },
-    dateOfBirth: String,
+    dateOfBirth: {
+        type: Date,
+        default: "10-07-1999",
+    },
+    // dateOfBirth: String,
 })
 
 

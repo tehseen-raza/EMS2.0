@@ -21,35 +21,43 @@ function AddEmployeeForm() {
   }
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
 
-    const allInputValues = {
-      fName: formValues.fName,
-      lName: formValues.lName,
-      email: formValues.email,
-      contact: formValues.contact,
-      age: formValues.age,
-      dob: formValues.dob
-    }
+    if (formValues.fName.length == 0 || formValues.lName.length == 0 || formValues.email.length == 0 || formValues.contact.length == 0 || formValues.age.length == 0 || formValues.dob.length == 0) {
+      alert('Please fill full form!');
+      console.log(formValues);
+    } else {
 
-    const url = 'http://localhost:5000/api/employee/add';
-    let res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(allInputValues)
-    });
-    // let respjson = await res.json();
-    if (res.status === 200) {
-      setMessage('Data Added Successfully.')
+      const allInputValues = {
+        fName: formValues.fName,
+        lName: formValues.lName,
+        email: formValues.email,
+        contact: formValues.contact,
+        age: formValues.age,
+        dob: formValues.dob
+      }
+
+      const url = 'http://localhost:5000/api/employee/add';
+      let res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(allInputValues)
+      });
+      // let respjson = await res.json();
+      if (res.status === 200) {
+        setMessage('Data Added Successfully.')
+      }
+
     }
 
   }
 
-  const redirectMe = () => {
-    setTimeout(() => {
-      location.replace("http://localhost:3000/")
-    }, 3000)
-  }
+  // const redirectMe = () => {
+  //   setTimeout(() => {
+  //     location.replace("http://localhost:3000/")
+  //   }, 3000)
+  // }
 
   return (
     <>
@@ -80,7 +88,7 @@ function AddEmployeeForm() {
           <input type='date' name='dob' className='form-control' value={formValues.age} onChange={handleInput} />
         </div>
         <div className="col-12 text-end">
-          <button type="submit" onClick={redirectMe} className="btn btn-primary">Add Employee</button>
+          <button type="submit" className="btn btn-primary">Add Employee</button>
         </div>
       </form>
     </>

@@ -5,10 +5,11 @@ function DataContainer() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
+        GetApiData();
+    }, [])
 
-        const url = 'http://localhost:5000/api/employees';
-
-        fetch(url, {
+    const GetApiData = () => {
+        fetch('http://localhost:5000/api/employees', {
             method: "GET",
             mode: 'cors',
         }).then((resp) => {
@@ -16,9 +17,24 @@ function DataContainer() {
                 .then((result) => {
                     setData(result.employees);
                 })
-        }).catch((err) => { console.log(err) })
-    }, [])
+        }).catch((err) => { console.log(err) });
+    }
 
+    const handleDelete = (id) => {
+
+        if (confirm('Are You Sure To Delete Data?') == true) {
+
+            fetch(`http://localhost:5000/api/employee/${id}`, {
+                method: 'DELETE'
+            }).then((resp) => {
+                resp.json().then((result) => {
+                    alert('Data Deleted Successfully!');
+                    console.log(result);
+                    GetApiData();
+                })
+            })
+        }
+    }
 
     return (
         <>
@@ -53,7 +69,7 @@ function DataContainer() {
                                         <td>{resp.dateOfBirth}</td>
                                         <td>
                                             <button className='btn btn-outline-warning me-1 text-dark'>Edit</button>
-                                            <button className='btn btn-danger ms-1'>Delete</button>
+                                            <button onClick={() => handleDelete(resp._id)} className='btn btn-danger ms-1'>Delete</button>
                                         </td>
                                     </tr>
                                 )
