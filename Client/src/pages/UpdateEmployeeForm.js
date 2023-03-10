@@ -1,6 +1,9 @@
 import React from 'react'
+import { Params } from 'react-router-dom'
 
-function UpdateEmployeeForm(prop) {
+
+function UpdateEmployeeForm(props) {
+    console.log(props);
     return (
         <div>UpdateEmployeeForm</div>
     )

@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path='/' element={<DataContainer />} />
         <Route path='/add/employee' element={<AddEmployeeForm />} />
-        <Route path='/update/employee' element={<UpdateEmployeeForm />} />
+        <Route path='/update/employee/:id' element={<UpdateEmployeeForm />} />
       </Routes>
     </Router>
   )

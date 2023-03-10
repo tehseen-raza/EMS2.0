@@ -79,7 +79,8 @@ function DataContainer() {
                                             <td>{resp.age}</td>
                                             <td>{resp.dateOfBirth}</td>
                                             <td>
-                                                <button type='button' onClick={() => handleEdit(resp._id)} className='btn btn-outline-warning me-1 text-dark'>Edit</button>
+                                                <Link to={'update/employee/' + resp._id} className='btn btn-outline-warning me-1 text-dark'>Edit</Link>
+                                                {/* <button type='button' onClick={() => handleEdit(resp._id)} className='btn btn-outline-warning me-1 text-dark'>Edit</button> */}
                                                 <button onClick={() => handleDelete(resp._id)} className='btn btn-danger ms-1'>Delete</button>
                                             </td>
                                         </tr>
