@@ -1,15 +1,16 @@
 import './App.css';
 import DataContainer from './components/DataContainer';
-import Header from './components/Header';
 import AddEmployeeForm from './pages/AddEmployeeForm';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='container'>
-      <Header />
-      <DataContainer />
-      <AddEmployeeForm />
-    </div>
+    <Router> 
+      <Routes>
+        <Route path='/' element={<DataContainer />} />
+        <Route path='addemployee' element={<AddEmployeeForm />} />
+      </Routes>
+    </Router>
   )
 }
 

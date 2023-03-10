@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Header from '../components/Header';
 
 
 
@@ -61,36 +62,39 @@ function AddEmployeeForm() {
 
   return (
     <>
-      <p>{message}</p>
-      <form className="row g-3" onSubmit={handleSubmit} method='POST'>
-        <div className="col-md-6">
-          <label className="form-label">First Name</label>
-          <input type="text" name='fName' className="form-control" value={formValues.fName} onChange={handleInput} />
-        </div>
-        <div className="col-md-6">
-          <label className="form-label">Last Name</label>
-          <input type="text" name='lName' className="form-control" value={formValues.lName} onChange={handleInput} />
-        </div>
-        <div className="col-md-6">
-          <label className="form-label">Email Address</label>
-          <input type="email" name='email' className="form-control" value={formValues.email} onChange={handleInput} />
-        </div>
-        <div className="col-md-6">
-          <label className="form-label">Contact Number</label>
-          <input type="number" name='contact' className="form-control" value={formValues.contact} onChange={handleInput} />
-        </div>
-        <div className="col-md-6">
-          <label className="form-label">Enter Your Age</label>
-          <input min='18' max='40' type="number" name='age' className="form-control" value={formValues.age} onChange={handleInput} />
-        </div>
-        <div className="col-md-6">
-          <label className="form-label">Date Of Birth</label>
-          <input type='date' name='dob' className='form-control' value={formValues.age} onChange={handleInput} />
-        </div>
-        <div className="col-12 text-end">
-          <button type="submit" className="btn btn-primary">Add Employee</button>
-        </div>
-      </form>
+      <div className='container'>
+        <Header />
+        <p>{message}</p>
+        <form className="row g-3" onSubmit={handleSubmit} method='POST'>
+          <div className="col-md-6">
+            <label className="form-label">First Name</label>
+            <input type="text" name='fName' className="form-control" value={formValues.fName} onChange={handleInput} />
+          </div>
+          <div className="col-md-6">
+            <label className="form-label">Last Name</label>
+            <input type="text" name='lName' className="form-control" value={formValues.lName} onChange={handleInput} />
+          </div>
+          <div className="col-md-6">
+            <label className="form-label">Email Address</label>
+            <input type="email" name='email' className="form-control" value={formValues.email} onChange={handleInput} />
+          </div>
+          <div className="col-md-6">
+            <label className="form-label">Contact Number</label>
+            <input type="number" name='contact' className="form-control" value={formValues.contact} onChange={handleInput} />
+          </div>
+          <div className="col-md-6">
+            <label className="form-label">Enter Your Age</label>
+            <input min='18' max='40' type="number" name='age' className="form-control" value={formValues.age} onChange={handleInput} />
+          </div>
+          <div className="col-md-6">
+            <label className="form-label">Date Of Birth</label>
+            <input type='date' name='dob' className='form-control' value={formValues.age} onChange={handleInput} />
+          </div>
+          <div className="col-12 text-end">
+            <button type="submit" className="btn btn-primary">Add Employee</button>
+          </div>
+        </form>
+      </div>
     </>
 
   )
