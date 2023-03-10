@@ -6,6 +6,7 @@ function DataContainer() {
 
     const [data, setData] = useState([]);
 
+    // Call API || Fetch Data
     useEffect(() => {
         GetApiData();
     }, [])
@@ -22,6 +23,7 @@ function DataContainer() {
         }).catch((err) => { console.log(err) });
     }
 
+    // Delete Data
     const handleDelete = (id) => {
 
         if (confirm('Are You Sure To Delete Data?') == true) {
@@ -31,19 +33,24 @@ function DataContainer() {
             }).then((resp) => {
                 resp.json().then((result) => {
                     alert('Data Deleted Successfully!');
-                    console.log(result);
                     GetApiData();
                 })
             })
         }
     }
 
+    // Edit Data
+    const handleEdit = (id) => {
+        console.log(id)
+    }
+
+    // ================================================
     return (
         <>
             <div className='container'>
                 <Header />
                 <div className="text-end">
-                    <Link to='/addemployee' className='btn btn-success py-2 px-3 mt-3 text-capitalize me-auto'>Add New Employee</Link>
+                    <Link to='/add/employee' className='btn btn-success py-2 px-3 mt-3 text-capitalize me-auto'>Add New Employee</Link>
                 </div>
                 <div className='shadow mt-3'>
                     <table className="table table-striped mt-3">
@@ -72,7 +79,7 @@ function DataContainer() {
                                             <td>{resp.age}</td>
                                             <td>{resp.dateOfBirth}</td>
                                             <td>
-                                                <button className='btn btn-outline-warning me-1 text-dark'>Edit</button>
+                                                <button type='button' onClick={() => handleEdit(resp._id)} className='btn btn-outline-warning me-1 text-dark'>Edit</button>
                                                 <button onClick={() => handleDelete(resp._id)} className='btn btn-danger ms-1'>Delete</button>
                                             </td>
                                         </tr>

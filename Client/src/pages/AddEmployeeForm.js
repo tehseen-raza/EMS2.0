@@ -47,7 +47,11 @@ function AddEmployeeForm() {
       });
       // let respjson = await res.json();
       if (res.status === 200) {
-        setMessage('Data Added Successfully.')
+        setMessage('Data Added Successfully.');
+        alert('Data Added Successfully.');
+        setTimeout(() => {
+          location.replace("http://localhost:3000/")
+        }, 3000)
       }
 
     }
