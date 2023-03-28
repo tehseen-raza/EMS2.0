@@ -36,7 +36,7 @@ const employeeScheema = new mongoose.Schema({
     age: Number,
     dateOfBirth: {
         type: Date,
-        default: "10-07-1999",
+        default: Date.now(),
     },
     // dateOfBirth: String,
 })

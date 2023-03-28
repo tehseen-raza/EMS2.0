@@ -26,7 +26,7 @@ function DataContainer() {
     // Delete Data
     const handleDelete = (id) => {
 
-        if (confirm('Are You Sure To Delete Data?') == true) {
+        if (confirm('Are You Sure To Delete Data?')) {
 
             fetch(`http://localhost:5000/api/employee/${id}`, {
                 method: 'DELETE'

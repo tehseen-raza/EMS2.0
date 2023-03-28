@@ -17,6 +17,7 @@ function AddEmployeeForm() {
   const [message, setMessage] = useState();
 
   const handleInput = (e) => {
+    // console.warn(e);
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   }
@@ -92,7 +93,7 @@ function AddEmployeeForm() {
           </div>
           <div className="col-md-6">
             <label className="form-label">Date Of Birth</label>
-            <input type='date' name='dob' className='form-control' value={formValues.age} onChange={handleInput} />
+            <input type='date' name='dob' className='form-control' value={formValues.dob} onChange={handleInput} />
           </div>
           <div className="col-12 text-end">
             <button type="submit" className="btn btn-primary">Add Employee</button>
